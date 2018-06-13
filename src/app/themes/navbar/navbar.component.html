@@ -1,0 +1,8 @@
+<!-- <mat-nav-list *ngFor="let nav of fillerNav">
+  <a mat-list-item routerLink="{{nav.routerLink}}">{{nav.name}}</a>
+</mat-nav-list> -->
+<ul class="nav flex-column" *ngFor="let nav of fillerNav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="{{nav.routerLink}}">{{nav.name}}</a>
+  </li>
+</ul>

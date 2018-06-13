@@ -1,0 +1,9 @@
+//generate component
+ng g c employees
+//cd to employees
+ng g c employee
+ng g c employee-list
+mkdir shared
+cd shared
+ng g s employee
+ng g class employee --type=model
