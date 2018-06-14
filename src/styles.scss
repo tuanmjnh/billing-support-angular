@@ -4,8 +4,7 @@
 
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
-/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
-
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~material-design-icons/iconfont/material-icons.css';
 /* body{
     margin:0px;
@@ -19,7 +18,11 @@ input.ng-invalid.ng-dirty{
   } */
 
 /* button */
-a{cursor: pointer;}
+
+a {
+  cursor: pointer;
+}
+
 .pointer {
   cursor: pointer
 }

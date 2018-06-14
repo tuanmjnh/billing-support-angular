@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { AppRoutingModule, routingComponents } from "./app-routing.module";
+import { AppRoutingModule, routingComponents } from "./app.routing";
 import { AppComponent } from "./app.component";
 // Firebase
 import { AngularFireModule } from "angularfire2";
@@ -13,14 +13,12 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
 // Plugins
-// import { MaterialModule } from './plugins/material.module';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MaterialModule } from "./plugins/material.module";
 // Themes
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavbarComponent } from './themes/navbar/navbar.component';
-import { ToolbarComponent } from './themes/toolbar/toolbar.component';
-import { FooterComponent } from './themes/footer/footer.component';
+import { MaterialComponent } from "./themes/material/material.component";
 @NgModule({
-  declarations: [AppComponent, routingComponents, NavbarComponent, ToolbarComponent, FooterComponent],
+  declarations: [AppComponent, routingComponents, MaterialComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,8 +29,8 @@ import { FooterComponent } from './themes/footer/footer.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    NgbModule.forRoot()
-    // MaterialModule
+    FlexLayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

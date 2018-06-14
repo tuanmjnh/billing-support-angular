@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 // import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
-import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTableModule } from "@angular/cdk/table";
 import {
   MatAutocompleteModule,
-  // MatBottomSheetModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
@@ -35,15 +36,16 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  // MatTreeModule,
-} from '@angular/material';
+  MatTreeModule
+} from "@angular/material";
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   exports: [
     CdkTableModule,
     MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -75,6 +77,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatTreeModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}
