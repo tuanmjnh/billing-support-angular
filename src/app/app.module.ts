@@ -15,6 +15,7 @@ import { environment } from "../environments/environment";
 // Plugins
 // import { MaterialModule } from './plugins/material.module';
 // Themes
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './themes/navbar/navbar.component';
 import { ToolbarComponent } from './themes/toolbar/toolbar.component';
 import { FooterComponent } from './themes/footer/footer.component';
@@ -29,7 +30,8 @@ import { FooterComponent } from './themes/footer/footer.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgbModule.forRoot()
     // MaterialModule
   ],
   providers: [],
