@@ -15,28 +15,27 @@ export class MaterialComponent implements OnInit {
   title = "Responsive Sidenav Starter";
   navList: NavList[];
   navAccount: NavAccount[];
-
   constructor(public ngZone: NgZone, public route: Router) {
     this.navList = [
       {
-        categoryName: "Tab 1",
+        categoryName: "Main",
         icon: "face",
-        dropDown: false,
+        dropDown: true,
         subCategory: [
           {
-            subCategoryName: "Item 1",
-            subCategoryLink: "/link",
-            subCategoryQuery: { title: "query item 1" },
+            subCategoryName: "Login",
+            subCategoryLink: "/auth",
+            // subCategoryQuery: { title: "query item 1" },
             visable: true
           },
           {
-            subCategoryName: "Item 2",
-            subCategoryLink: "/link1",
+            subCategoryName: "Dashboard",
+            subCategoryLink: "/dashboard",
             visable: true
           },
           {
-            subCategoryName: "Item 3",
-            subCategoryLink: "/link1",
+            subCategoryName: "Language",
+            subCategoryLink: "/languages",
             visable: true
           }
         ]

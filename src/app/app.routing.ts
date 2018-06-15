@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: "languages",
     loadChildren: "./modules/languages/languages.module#LanguagesModule",
-    data: { preload: true }
+    data: { preload: false }
   },
   { path: "**", component: NotFoundComponent }
 ];

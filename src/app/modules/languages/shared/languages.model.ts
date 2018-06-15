@@ -1,5 +1,5 @@
 export class Languages {
-  $key: string;
+  // $key: string;
   name: string;
   desc: string;
   icon: string;

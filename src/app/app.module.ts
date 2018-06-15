@@ -25,10 +25,10 @@ import { MaterialComponent } from "./themes/material/material.component";
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     FlexLayoutModule,
     MaterialModule
   ],
