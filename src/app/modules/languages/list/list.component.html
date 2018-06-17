@@ -2,3 +2,8 @@
   <table mat-table >
   </table>
 </div>
+<ul>
+  <li *ngFor="let item of items | async" id="{{item.id}}">
+    {{ item.name }} - {{ item.icon }}
+  </li>
+</ul>
