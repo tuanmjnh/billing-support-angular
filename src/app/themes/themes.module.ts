@@ -8,11 +8,11 @@ import { NavbarComponent } from "./bootstrap/navbar/navbar.component";
 import { ToolbarComponent } from "./bootstrap/toolbar/toolbar.component";
 import { FooterComponent } from "./bootstrap/footer/footer.component";
 
-// @NgModule({
-//   imports: [CommonModule, RouterModule],
-//   exports: [],
-//   // declarations: [ThemesComponent, NavbarComponent, ToolbarComponent, FooterComponent]
-// })
+@NgModule({
+  imports: [CommonModule, RouterModule],
+  exports: [],
+  // declarations: [ThemesComponent, NavbarComponent, ToolbarComponent, FooterComponent]
+})
 export class ThemesModule {}
 
 export const ThemesComponents = [

@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
+import { NgModule, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
-
+import { MaterialTableModule } from "../../plugins/material.table.module";
 // import { LanguagesRoutingModule } from './languages-routing.module';
 // import { RecentSubmissionsComponent } from './recent-submissions/recent-submissions.component';
 // import { NewSubmissionComponent } from './new-submission/new-submission.component';
@@ -25,6 +25,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    MaterialTableModule,
     RouterModule.forChild(routes)
     // LanguagesRoutingModule,
     // SharedModule

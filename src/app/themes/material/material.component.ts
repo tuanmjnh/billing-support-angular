@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
   templateUrl: "./material.component.html",
   styleUrls: ["./material.component.scss"]
 })
+
 export class MaterialComponent implements OnInit {
   //Sidenav responsive
   width;

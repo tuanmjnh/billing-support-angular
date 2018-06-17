@@ -43,7 +43,7 @@ export class LanguagesService {
   }
   insert(model: Languages) {
     model.created = { by: "Admin", at: new Date() };
-    this.afs.collection(this.path).add(model);
+    this.afs.collection(this.path).add(convertObject(model));
     // this.collection.push({
     //   name: model.name,
     //   desc: model.desc,
@@ -55,7 +55,7 @@ export class LanguagesService {
   }
   update(id: string, model: Partial<Languages>): Promise<void> {
     model.updated = { by: "Admin", at: new Date() };
-    return this.afs.doc<Languages>(`${this.path}/${id}`).update(model);
+    return this.afs.doc<Languages>(`${this.path}/${id}`).update(convertObject(model));
     // this.list.update(model.$key, {
     //   name: model.name,
     //   desc: model.desc,
@@ -68,7 +68,7 @@ export class LanguagesService {
   delete(id: string, model: Languages): Promise<void> {
     model.flag = 0 ? 1 : 0;
     model.deleted = { by: "Admin", at: new Date() };
-    return this.afs.doc<Languages>(`${this.path}/${id}`).update(model);
+    return this.afs.doc<Languages>(`${this.path}/${id}`).update(convertObject(model));
     // this.list.update(model.$key, {
     //   flag: model.flag == 0 ? 1 : 0,
     //   deleted: { by: "Admin", at: new Date() }

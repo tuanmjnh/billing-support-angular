@@ -1,4 +1,5 @@
 @import './theme';
+
 .sidenav-container {
   position: absolute;
   top: 0;
@@ -64,8 +65,4 @@
 
 .mat-line:focus {
   outline: none
-}
-
-.flex-spacer {
-  flex-grow: 1
 }

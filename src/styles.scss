@@ -6,6 +6,10 @@
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~material-design-icons/iconfont/material-icons.css';
+// @import '~@swimlane/ngx-datatable/release/index.css';
+// @import '~@swimlane/ngx-datatable/release/themes/material.css';
+// @import '~@swimlane/ngx-datatable/release/assets/icons.css';
+// @import './theme';
 /* body{
     margin:0px;
 }
@@ -23,14 +27,81 @@ a {
   cursor: pointer;
 }
 
+.flex-spacer {
+  flex-grow: 1
+}
+
+// Table
+.table {
+  width: 100%
+}
+
+.table th.text-center button {
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  th.w-1 {
+    width: 1%;
+  }
+  th.w-2 {
+    width: 2%;
+  }
+  th.w-3 {
+    width: 3%;
+  }
+  th.w-4 {
+    width: 4%;
+  }
+  th.w-5 {
+    width: 5%;
+  }
+  th.w-6 {
+    width: 6%;
+  }
+  th.w-7 {
+    width: 7%;
+  }
+  th.w-8 {
+    width: 8%;
+  }
+  th.w-9 {
+    width: 9%;
+  }
+  th.w-10 {
+    width: 10%;
+  }
+  th.w-15 {
+    width: 15%;
+  }
+  th.w-20 {
+    width: 20%;
+  }
+}
+
 .pointer {
   cursor: pointer
 }
 
-.btn {
-  padding: 3px 6px;
+.mat-column-select {
+  overflow: initial;
 }
 
-.btn .material-icons {
+.mat-checkbox-frame,
+.mat-checkbox-background {
+  border-radius: 0 !important;
+}
+
+button:focus {
+  outline: initial !important
+}
+
+.mat-button {
+  // padding: 3px 6px;
+  border-radius: 0 !important;
+  box-shadow: initial !important;
+}
+
+.mat-button .material-icons {
   display: flex
 }
