@@ -1,11 +1,13 @@
 import { NgModule, ViewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
-import { MaterialTableModule } from "../../plugins/material.table.module";
+import { FormsModule } from "@angular/forms";
+import { MaterialModule } from "../../plugins/material.module";
 // import { LanguagesRoutingModule } from './languages-routing.module';
 // import { RecentSubmissionsComponent } from './recent-submissions/recent-submissions.component';
 // import { NewSubmissionComponent } from './new-submission/new-submission.component';
 // import { SharedModule } from '../../shared/shared.module';
+import { LanguagesService } from "./shared/languages.service";
 // Components
 import { LanguagesComponent } from "./languages.component";
 import { ListComponent } from "./list/list.component";
@@ -25,11 +27,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    MaterialTableModule,
+    FormsModule,
+    MaterialModule,
     RouterModule.forChild(routes)
     // LanguagesRoutingModule,
     // SharedModule
   ],
+  providers: [LanguagesService],
   declarations: [LanguagesComponent, ListComponent, UpdateComponent] // FormComponent, RecentSubmissionsComponent, NewSubmissionComponent
 })
 export class LanguagesModule {}

@@ -1,9 +1,26 @@
 import * as moment from "moment";
-export function convertObject(data) {
+import { nextTick } from "q";
+export function convertObject(data, ignore = "id", removeNull = true) {
   var obj = {};
-  Object.keys(data).forEach(function(key, index) {
-    obj[key] = data[key];
-  });
+  if (ignore) {
+    Object.keys(data).forEach(function(key, index) {
+      if (key !== ignore) {
+        if (data[key]) {
+          obj[key] = data[key];
+        } else {
+          if (!removeNull) obj[key] = null;
+        }
+      }
+    });
+  } else {
+    Object.keys(data).forEach(function(key, index) {
+      if (data[key]) {
+        obj[key] = data[key];
+      } else {
+        if (!removeNull) obj[key] = null;
+      }
+    });
+  }
   return obj;
 }
 export function newDate(format = "DD/MM/YYYY hh:mm:ss") {

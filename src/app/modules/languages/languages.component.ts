@@ -8,5 +8,4 @@ export class LanguagesComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
 }

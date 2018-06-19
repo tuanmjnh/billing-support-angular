@@ -12,8 +12,13 @@ import { convertObject } from "../../../common/Helpers";
 })
 export class LanguagesService {
   readonly path = "languages";
+  routerPath = {
+    list: `/${this.path}/list`,
+    update: `/${this.path}/update`
+  };
   collection: AngularFirestoreCollection<Languages>;
   items: Observable<Languages[]>;
+  item: Languages = new Languages();
   constructor(private afs: AngularFirestore) {}
   select() {
     // this.collection = this.afs.collection<Languages>(this.path);
@@ -55,7 +60,9 @@ export class LanguagesService {
   }
   update(id: string, model: Partial<Languages>): Promise<void> {
     model.updated = { by: "Admin", at: new Date() };
-    return this.afs.doc<Languages>(`${this.path}/${id}`).update(convertObject(model));
+    return this.afs
+      .doc<Languages>(`${this.path}/${id}`)
+      .update(convertObject(model));
     // this.list.update(model.$key, {
     //   name: model.name,
     //   desc: model.desc,
@@ -68,7 +75,9 @@ export class LanguagesService {
   delete(id: string, model: Languages): Promise<void> {
     model.flag = 0 ? 1 : 0;
     model.deleted = { by: "Admin", at: new Date() };
-    return this.afs.doc<Languages>(`${this.path}/${id}`).update(convertObject(model));
+    return this.afs
+      .doc<Languages>(`${this.path}/${id}`)
+      .update(convertObject(model));
     // this.list.update(model.$key, {
     //   flag: model.flag == 0 ? 1 : 0,
     //   deleted: { by: "Admin", at: new Date() }

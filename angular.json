@@ -27,9 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/scss/bootstrap-reboot.scss",
-              "node_modules/bootstrap/scss/bootstrap-grid.scss",
-              "node_modules/bootstrap/scss/bootstrap-custom.scss",
+              "src/assets/bootstrap/scss/bootstrap-custom.scss",
               "src/styles.scss"
             ],
             "scripts": [
