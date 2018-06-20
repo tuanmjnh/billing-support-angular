@@ -1,5 +1,4 @@
 import * as moment from "moment";
-import { nextTick } from "q";
 export function convertObject(data, ignore = "id", removeNull = true) {
   var obj = {};
   if (ignore) {

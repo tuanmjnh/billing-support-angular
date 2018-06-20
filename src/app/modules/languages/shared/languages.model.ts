@@ -3,7 +3,7 @@ export class Languages {
   name: string;
   desc: string;
   icon: string;
-  orders: number = 0;
+  orders: number = 1;
   created: { by: string; at: Date };
   updated: { by: string; at: Date };
   deleted: { by: string; at: Date };

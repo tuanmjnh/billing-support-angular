@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { NgForm, FormGroup } from "@angular/forms";
 import { LanguagesService } from "../shared/languages.service";
 import { Languages } from "../shared/languages.model";
@@ -6,34 +7,47 @@ import { Languages } from "../shared/languages.model";
 @Component({
   selector: "app-update",
   templateUrl: "./update.component.html",
-  styleUrls: ["./update.component.css"],
-  providers: [LanguagesService]
+  styleUrls: ["./update.component.css"]
 })
 export class UpdateComponent implements OnInit {
   routerPath = {};
-  item: Languages = new Languages();
-  constructor(private languagesService: LanguagesService) {}
-
+  constructor(
+    private languagesService: LanguagesService,
+    private router: Router,
+  ) { }
+  id: any;
   ngOnInit() {
-    // Router Path
-    this.routerPath = this.languagesService.routerPath;
-    this.item = this.languagesService.item;
-    console.log(this.languagesService.item);
+    if (this.languagesService.item && this.languagesService.item.id) {
+      this.id = this.languagesService.item.id;
+      this.languagesService
+        .selectById(this.languagesService.item.id)
+        .subscribe(data => {
+          this.languagesService.item = data;
+        });
+    } else this.id = null;
   }
-  onInsert(formData: NgForm) {
+  onUpdate(formData: NgForm) {
     if (formData.valid) {
-      if (formData.value.id)
-        this.languagesService.update(formData.value.id, formData.value);
-      else this.languagesService.insert(formData.value);
-
-      // if (employeeForm.value.$key == null) this.employeeService.insertEmployee(employeeForm.value);
-      // else this.employeeService.updateEmployee(employeeForm.value);
-      // this.resetForm();
-      // this.toastr.success('Submitted Successfully', 'Employee Register');
-      this.item = new Languages();
+      if (this.id) {
+        this.languagesService.update(this.id, formData.value);
+        console.log("update sucessfull");
+      } else {
+        this.languagesService.insert(formData.value);
+        console.log("insert sucessfull");
+        this.languagesService.item = new Languages();
+      }
     } else {
       console.log("form invalid!");
     }
+  }
+  onCancel() {
+    this.router.navigate([
+      "/",
+      this.languagesService.router.path,
+      this.languagesService.router.list
+    ]);
+    this.languagesService.item = new Languages();
+    console.log(this.languagesService.item);
   }
   resetForm(formData?: NgForm) {
     // console.log(formData.invalid);

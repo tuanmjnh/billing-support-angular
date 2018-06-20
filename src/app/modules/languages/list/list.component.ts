@@ -1,34 +1,56 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { LanguagesService } from "../shared/languages.service";
 import { Languages } from "../shared/languages.model";
 import { MatSort, MatPaginator, MatTableDataSource } from "@angular/material";
 import { SelectionModel } from "@angular/cdk/collections";
-
 @Component({
   selector: "app-list",
   templateUrl: "./list.component.html",
   styleUrls: ["./list.component.scss"]
 })
 export class ListComponent implements OnInit {
-  routerPath = {};
   displayedColumns = ["select", "name", "icon", "orders", "actions"];
   dataSource = new MatTableDataSource<Languages>();
   selection = new SelectionModel<Languages>(true, []);
+  tm: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private languagesService: LanguagesService) {}
+  constructor(
+    private languagesService: LanguagesService,
+    private router: Router
+  ) {
+    this.languagesService.selectWithId();
+  }
   ngOnInit() {
-    // Router Path
-    this.routerPath = this.languagesService.routerPath;
     // dataSource
-    this.languagesService.selectId().subscribe(data => {
+    this.languagesService.selectWithId().subscribe(data => {
       this.dataSource.data = data;
     });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    // var a = this.languagesService.selectWithId().subscribe(res => {
+    //   this.languagesService.items = res;
+    // });
   }
-  edit(item) {
-    console.log(item)
+  onAdd() {
+    this.languagesService.item = new Languages();
+    this.router.navigate([
+      "/",
+      this.languagesService.router.path,
+      this.languagesService.router.update
+    ]);
+  }
+  onEdit(id) {
+    this.languagesService.item.id = id;
+    this.router.navigate([
+      "/",
+      this.languagesService.router.path,
+      this.languagesService.router.update
+    ]);
+  }
+  onDelete(item) {
+    console.log(item);
   }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
