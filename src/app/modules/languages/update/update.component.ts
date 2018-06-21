@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { NgForm, FormGroup } from "@angular/forms";
 import { LanguagesService } from "../shared/languages.service";
 import { Languages } from "../shared/languages.model";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-update",
@@ -12,9 +13,10 @@ import { Languages } from "../shared/languages.model";
 export class UpdateComponent implements OnInit {
   routerPath = {};
   constructor(
-    private languagesService: LanguagesService,
+    public languagesService: LanguagesService,
     private router: Router,
-  ) { }
+    private toastr: ToastrService
+  ) {}
   id: any;
   ngOnInit() {
     if (this.languagesService.item && this.languagesService.item.id) {
@@ -30,14 +32,14 @@ export class UpdateComponent implements OnInit {
     if (formData.valid) {
       if (this.id) {
         this.languagesService.update(this.id, formData.value);
-        console.log("update sucessfull");
+        this.toastr.success("update sucessfull!");
       } else {
         this.languagesService.insert(formData.value);
-        console.log("insert sucessfull");
         this.languagesService.item = new Languages();
+        this.toastr.success("insert sucessfull!");
       }
     } else {
-      console.log("form invalid!");
+      this.toastr.error("form invalid!");
     }
   }
   onCancel() {

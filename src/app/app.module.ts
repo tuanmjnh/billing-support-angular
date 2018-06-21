@@ -17,6 +17,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MaterialModule } from "./plugins/material.module";
 // Themes
 import { MaterialComponent } from "./themes/material/material.component";
+// toastr
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [AppComponent, routingComponents, MaterialComponent],
   imports: [
@@ -30,7 +32,8 @@ import { MaterialComponent } from "./themes/material/material.component";
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

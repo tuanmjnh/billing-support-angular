@@ -1,10 +1,11 @@
 {
-  "name": "billing-support-angular",
-  "version": "0.0.0",
+  "name": "billingsupport-6216c",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildprod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -43,6 +44,7 @@
     "@types/node": "~8.9.4",
     "bootstrap": "^4.1.1",
     "codelyzer": "~4.2.1",
+    "eslint": "^4.19.1",
     "font-awesome": "^4.7.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

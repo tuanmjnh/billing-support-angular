@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
-    private languagesService: LanguagesService,
+    public languagesService: LanguagesService,
     private router: Router
   ) {
     this.languagesService.selectWithId();
